@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="icon" type="image/x-icon" href="./favicon.ico">
+	<meta charset="utf-8">
+	<meta name="author" content="zhangqy">
+	<meta name="keyword" content="html,js,css">
+	<title>Weiqi</title>
+	<style type="text/css">
+		div {
+			background-color: red;
+			position: fixed;
+			top: 0;
+			width: 100%;
+			height: 100%;
+		}
+		#main {
+			height: 611px;
+			min-width: 1121px;
+			/*float: left;*/
+			border: 1px solid red;
+			position: absolute;
+		}
+
+		#canvas {
+			z-index: 110;
+			background: #d4d0c8;
+			position: fixed;
+			min-width: 514px;
+			top: 26px;
+			left: 13px;
+			right: 270px;
+			bottom: 39px;
+			border: 1px solid brown;
+		}
+		#info {
+			height: 606px;
+			width: 200px;
+			/*float: right;*/
+			border: 1px dashed green;
+			/*position:*/ 
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+
+		#footer {
+			width: 570px;
+			height: 30px;
+			/*float: left;*/
+			border: 1px solid blue;
+			text-align: center;
+		}
+		/*#canvas {
+			width: 601px;
+			height: 601px;
+		}*/
+	</style>
+
+</head>
+<body>
+	<div>
+		<div id="main">
+			<div id="canvas">
+				<canvas id="chessboard" width="609" height="609">
+					Your browser doesn't support canvas.
+				</canvas>
+				<div id="footer">
+					<button>begin</button>
+					<button>back5</button>
+					<button>back</button>
+					<button>go</button>
+					<button>go5</button>
+					<button>end</button>
+				</div>
+			</div>
+
+			<div id="info">
+				info
+			</div>
+		</div>
+	</div>
+
+		<script type="text/javascript">
+		// Paint the chessboard
+		var canvas = document.getElementById("chessboard");
+		var context = canvas.getContext("2d");
+		context.fillStyle = "yellow";
+		context.fillRect(15, 15, 540, 540);
+		var size = 19;//Board number
+		var cell = 530 / size;//The size of each cell
+		//	alert(cell);
+		var src = 20 + cell/2;
+		var dest = 550 - cell/2;
+		console.log(src + "," + dest);
+		for (var i = 0; i < size; i++)
+		{
+			context.moveTo(src, src + cell*i);
+			context.lineTo(dest, src + cell*i);
+			context.stroke();
+			context.moveTo(src + cell*i, src);
+			context.lineTo(src + cell*i, dest);
+			context.stroke();
+		}/*	*/
+		var gradient = context.createLinearGradient(0, 0, 600, 600);
+		
+		gradient.addColorStop("0","magenta");
+		gradient.addColorStop("0.5","blue");
+		gradient.addColorStop("1.0","red");
+		context.lineWidth = 10;
+		context.strokeStyle=gradient;
+		context.strokeRect(15, 15, 540, 540);
+
+		var flag = true;// Mark the color of chesspiece to control the order
+		var occupied = new Array(size);
+		for (var i = 0; i < size; i++)
+			occupied[i] = new Array(size);
+		for (var i = 0; i < size; i++)
+			for (var j = 0; j < size; j++)
+			{
+				occupied[i][j] = {black:true, white:true};//All insections are available;
+				if ((3 == i || parseInt(size/2) == i || size - 4 == i) && (3 == j || parseInt(size/2) == j || size - 4 == j))//Star
+				{
+					var r_x = src + i*cell;
+					var r_y = src + j*cell;
+					context.fillStyle = "black";
+					context.beginPath();
+					context.arc(r_x, r_y, cell/8, 0, 2*Math.PI);
+					context.closePath();
+					context.fill();
+				}
+
+			}
+
+		var box = canvas.getBoundingClientRect();
+
+		document.onclick = function(e)
+		{
+			var x = (e.pageX - box.left) * canvas.width/box.width;
+			var y = (e.pageY - box.left) * canvas.height/box.height;
+			console.log("box:" + box.left + "," + box.top + "," + box.width + "," + box.height)
+			console.log("canvas:" + canvas.width + "," + canvas.height)
+			
+			for (var i = 0; i < size; i++)
+				for (var j = 0; j < size; j++)
+				{
+					var r_x = src + i*cell;
+					var r_y = src + j*cell;
+					if (r_x - cell/2 < x && x < r_x + cell / 2 && r_y - cell / 2 < y && y < r_y + cell / 2 && occupied[i][j].black && occupied[i][j].white)
+					{
+						if (flag)
+						{
+							context.fillStyle = "black";
+							occupied[i][j].black = false;
+						}
+						else
+						{
+							context.fillStyle = "white";
+							occupied[i][j].white = false;
+						}												
+						context.beginPath();
+						context.arc(r_x, r_y, cell/2, 0, 2*Math.PI);
+						context.closePath();
+						context.fill();
+						flag = !flag;
+						console.log("r:" + (r_x-x) + "," + (r_y-y) + "\n");
+					}	
+				}
+		}
+		
+		//Clear the died pieces
+		function updatePieces()
+		{
+
+		}
+
+	</script>
+</body>
+</html>
