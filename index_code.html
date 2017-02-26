@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="icon" type="image/x-icon" href="./favicon.ico">
+	<meta charset="utf-8">
+	<meta name="author" content="Zhang Qiongyu">
+	<meta name="keyword" content="IT, zhangqy, engineer">
+	<title>Zhang Qiongyu</title>
+
+	<style type="text/css">
+		@font-face {
+			font-family: Novecentowide;
+			src: url(./font/Novecentowide-Bold-webfont.woff);
+		}
+
+		@font-face {
+			font-family: BloklettersPotlood;
+			src: url(./font/Blokletters-Potlood-webfont.woff);
+		}
+		
+		#main {
+			width: 100%;
+			height: 800px;
+			background-color: #e0e0e0;
+		}
+
+		header {
+			height: 350px;
+			width: 100%;
+			background-image: url(./image/page.jpg);
+			background-repeat: no-repeat;
+			background-size: 100%;
+			text-align: center;
+		}
+		
+		nav {
+			height: 240px;
+			width: 100%;
+			background-color: #e8e8e8;
+		}
+
+		a div {
+			float: left;
+			height: 240px;
+			width: 25%;
+		}
+		h1 {
+			font-family: "Novecentowide";
+			font-size: 5em;
+    		letter-spacing: normal;
+    		color: #404040;
+		}
+
+		h2 {
+			font-family: "Novecentowide";
+			font-size: 1.5em;
+    		letter-spacing: normal;
+    		color: #404040;
+		}
+		
+		.logo {
+			text-align: center;
+			vertical-align: center;
+			width: 120px;
+			height: 120px;
+		}
+				
+		footer {
+			height: 190px;
+			width: 100%;
+			/*background-color: green;*/
+			background-image: url(./image/wave-pattern.png);
+			text-align: center;
+		}
+
+		.contact {
+			width: 100px;
+			height: 100px;
+		}
+
+		#weichat {
+			display: none;
+			height: 100px;
+			background: #f00;
+			position: absolute;
+		}
+
+		a:hover {
+			background-color: black;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="main">
+	<header>
+		<div style="height: 60px;"></div>
+		<!--img class="logo" src="./image/logo2.jpg" alt="Logo of website"-->
+		
+		<h1>
+			WEB & BACK END
+		</h1>
+		<!--p>By Zhang Qiongyu</p-->
+		
+	</header>
+	<nav>
+		<a href="">
+			<div title="Have a look at my resume">
+				<canvas id="resume" width="230" height="240">
+					Your browser does not support canvas!
+				</canvas>
+			</div>
+		</a>
+		<a href="./snake/snake.html">
+			<div title="Just play the games to have fun">
+				<canvas id="game" width="230" height="240">
+					Your browser does not support canvas!
+				</canvas>
+			</div>
+		</a>
+		<a href="">
+			<div title="A little about Zhang Qiongyu">
+				<canvas id="about" width="230" height="240">
+					Your browser does not support canvas!
+				</canvas>
+			</div>
+		</a>
+		<a href="">
+			<div title="See what Zhang Qiongyu usually does">
+				<canvas id="blog" width="230" height="240">
+					Your browser does not support canvas!
+				</canvas>
+			</div>
+		</a>
+	</nav>
+	<footer>
+		<h2>Contact me</h2>
+		<!--div-->
+		<a href="https://www.baidu.com" title="Facebook">
+			<img class="contact" src="./image/facebook.jpg">
+		</a>
+		&nbsp;&nbsp;
+		<!--/div-->
+
+		<!--div-->
+			<!--a href="./image/2dbarcode.png" onmouseout="hideQRCode()" onmouseover="showQRCode()"-->
+		<a href="./image/2dbarcode.png" title="Weichat">
+			<img class="contact" src="./image/weichat.jpg">
+		</a>
+		<!--/div-->
+		&nbsp;&nbsp;
+		<a href="https://github.com/zhangqiongyu/" title="Github">
+			<img class="contact" src="./image/github.jpg">
+		</a>
+		<p style="font-family: BloklettersPotlood; font-size: 12px;">
+			Copyright&copy2017 Zhang Qiongyu
+		</p>
+
+	</footer>
+
+
+	</div>
+	<script type="text/javascript">
+		function drawCanvas()
+		{
+			var canvasWidth = document.body.clientWidth / 4;
+		//var canvasHeight = document.getElementById()
+
+			document.getElementById("resume").width = canvasWidth;
+			document.getElementById("game").width = canvasWidth;
+			document.getElementById("about").width = canvasWidth;
+			document.getElementById("blog").width = canvasWidth;
+			/*document.getElementById("resume").height = canvasWidth;
+			document.getElementById("game").height = canvasWidth;
+			document.getElementById("about").height = canvasWidth;
+			document.getElementById("blog").height = canvasWidth;*/
+
+			var canvasResume = document.getElementById("resume");
+			var ctxResume = canvasResume.getContext("2d");
+			//ctxResume.clearRect(5, 5, canvasWidth - 10, 230);
+			ctxResume.fillStyle = "#9966ff";
+			ctxResume.fillRect(5, 5, canvasWidth - 10, 230);
+			ctxResume.fillStyle = "#6600cc";
+			ctxResume.fillRect(5, 50, canvasWidth - 160, 130);
+			ctxResume.font = "30px Novecentowide";
+			ctxResume.fillStyle = "white";
+			ctxResume.fillText("Resume", 20, 125);
+			ctxResume.font = "8px Arial";
+			ctxResume.fillText("Zhang Qiongyu", 15, 210);
+			ctxResume.fillText("THU-SCHOOL OF AEROSPACE", canvasWidth - 135, 65);
+			ctxResume.moveTo(canvasWidth - 135, 50);
+			ctxResume.lineTo(canvasWidth - 17, 50);
+			ctxResume.strokeStyle = "white";
+			ctxResume.stroke();
+
+			var canvasGame = document.getElementById("game");
+			var ctxGame = canvasGame.getContext("2d");
+			ctxGame.fillStyle = "#33cc66";
+			ctxGame.fillRect(5, 5, canvasWidth - 10, 230);
+			ctxGame.fillStyle = "#009900";
+			ctxGame.fillRect(5, 50, canvasWidth - 160, 130);
+			ctxGame.font = "30px Novecentowide";
+			ctxGame.fillStyle = "white";
+			ctxGame.fillText("Game", 30, 125);
+			ctxGame.font = "8px Arial";
+			ctxGame.fillText("Zhang Qiongyu", 15, 210);
+			ctxGame.fillText("THU-SCHOOL OF AEROSPACE", canvasWidth - 135, 65);
+			ctxGame.moveTo(canvasWidth - 135, 50);
+			ctxGame.lineTo(canvasWidth - 17, 50);
+			ctxGame.strokeStyle = "white";
+			ctxGame.stroke();
+
+			var canvasAbout = document.getElementById("about");
+			var ctxAbout = canvasAbout.getContext("2d");
+			ctxAbout.fillStyle = "#3366ff";
+			ctxAbout.fillRect(5, 5, canvasWidth - 10, 230);
+			ctxAbout.fillStyle = "#003c9d";
+			ctxAbout.fillRect(5, 50, canvasWidth - 160, 130);
+			ctxAbout.font = "30px Novecentowide";
+			ctxAbout.fillStyle = "white";
+			ctxAbout.fillText("About", 30, 125);
+			ctxAbout.font = "8px Arial";
+			ctxAbout.fillText("Zhang Qiongyu", 15, 210);
+			ctxAbout.fillText("THU-SCHOOL OF AEROSPACE", canvasWidth - 135, 65);
+			ctxAbout.moveTo(canvasWidth - 135, 50);
+			ctxAbout.lineTo(canvasWidth - 17, 50);
+			ctxAbout.strokeStyle = "white";
+			ctxAbout.stroke();
+
+			var canvasBlog = document.getElementById("blog");
+			var ctxBlog = canvasBlog.getContext("2d");
+			ctxBlog.fillStyle = "#ff6947";
+			ctxBlog.fillRect(5, 5, canvasWidth - 10, 230);
+			ctxBlog.fillStyle = "#ff0033";
+			ctxBlog.fillRect(5, 50, canvasWidth - 160, 130);
+			ctxBlog.font = "30px Novecentowide";
+			ctxBlog.fillStyle = "white";
+			ctxBlog.fillText("Blog", 40, 125);
+			ctxBlog.font = "8px Arial";
+			ctxBlog.fillText("Zhang Qiongyu", 15, 210);
+			ctxBlog.fillText("THU-SCHOOL OF AEROSPACE", canvasWidth - 135, 65);
+			ctxBlog.moveTo(canvasWidth - 135, 50);
+			ctxBlog.lineTo(canvasWidth - 17, 50);
+			ctxBlog.strokeStyle = "white";
+			ctxBlog.stroke();
+
+			var lenTri = 40;
+			var lenQua = 25;
+			var lenHex = 20;
+			var radius = 19;
+			for(var i = 2; i < 114; i++)
+				for(var j = 0; j < 3; j++)
+				{
+					ctxResume.beginPath();
+					ctxResume.moveTo(canvasWidth - 120 + j*lenTri, 100 + i*lenTri*Math.sqrt(3)/6);
+					ctxResume.lineTo(canvasWidth - 120 + j*lenTri - lenTri/2, 100 + (i/3 + 1)*lenTri*Math.sqrt(3)/2);
+					ctxResume.lineTo(canvasWidth - 120 + j*lenTri + lenTri/2, 100 + (i/3 + 1)*lenTri*Math.sqrt(3)/2);
+					ctxResume.closePath();				
+					ctxResume.stroke();	
+
+					ctxGame.beginPath();
+					ctxGame.moveTo(canvasWidth - 120 + j*lenHex*Math.sqrt(3), 100 + i*lenHex/1.5);
+					ctxGame.lineTo(canvasWidth - 120 + (j-1/2)*lenHex*Math.sqrt(3), 100 + i*lenHex/1.5 + lenHex/2);
+					ctxGame.lineTo(canvasWidth - 120 + (j-1/2)*lenHex*Math.sqrt(3), 100 + i*lenHex/1.5 + 3*lenHex/2);
+					ctxGame.lineTo(canvasWidth - 120 + j*lenHex*Math.sqrt(3), 100 + i*lenHex/1.5 + 2*lenHex);
+					ctxGame.lineTo(canvasWidth - 120 + (j+1/2)*lenHex*Math.sqrt(3), 100 + i*lenHex/1.5 + 3*lenHex/2);
+					ctxGame.lineTo(canvasWidth - 120 + (j+1/2)*lenHex*Math.sqrt(3), 100 + i*lenHex/1.5 + lenHex/2);
+					ctxGame.closePath();
+					ctxGame.stroke();
+
+					ctxAbout.beginPath();
+					ctxAbout.moveTo(canvasWidth - 120 + j*lenQua*Math.sqrt(2), 100 + i*lenQua*Math.sqrt(2)/2);
+					ctxAbout.lineTo(canvasWidth - 120 + j*lenQua*Math.sqrt(2) - lenQua*Math.sqrt(2)/2, 100 + i*lenQua*Math.sqrt(2)/2 + lenQua*Math.sqrt(2)/2);
+					ctxAbout.lineTo(canvasWidth - 120 + j*lenQua*Math.sqrt(2), 100 + (i+2)*lenQua*Math.sqrt(2)/2);
+					ctxAbout.lineTo(canvasWidth - 120 + j*lenQua*Math.sqrt(2) + lenQua*Math.sqrt(2)/2, 100 + i*lenQua*Math.sqrt(2)/2 + lenQua*Math.sqrt(2)/2);
+					ctxAbout.closePath();
+					ctxAbout.stroke();
+
+					ctxBlog.beginPath();
+					ctxBlog.arc(canvasWidth - 120 + 2*j*radius, 100 + (i+1)*radius/2, radius, 0, 2*Math.PI);
+					ctxBlog.stroke();
+				}	
+		}
+		
+		drawCanvas();
+		
+		window.onresize = function()
+		{
+			drawCanvas();
+		}
+
+		function showQRCode()
+		{
+			document.getElementsByClassName("contact")[1].style.display = "block";
+		}
+
+		function hideQRCode()
+		{
+			document.getElementsByClassName("contact")[1].style.display = "none";
+		}
+	</script>
+</body>
+</html>

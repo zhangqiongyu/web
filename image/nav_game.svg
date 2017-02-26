@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="100%" height="100%" version="1.1"
+	 xmlns="http://www.w3.org/2000/svg">
+
+<rect width="135" height="48"
+	style="fill:#55a850;stroke-width:5;
+	stroke:#e0e0e0"/>
+<rect x="10" y="22" rx="9" ry="9" width="34" height="18" style="fill:white;stroke:white"/>
+<text x="13" y="38" fill="#55a850" style="font-family:sans-serif; font-size:22">+</text>
+<text x="30" y="31" fill="#55a850" style="font-family:sans-serif; font-size:8">o</text>
+<text x="35" y="36" fill="#55a850" style="font-family:sans-serif; font-size:8">o</text>
+<line x1="20" y1="22" x2="10" y2="10" style="fill:white;stroke:white;stroke-width:3"/>
+<line x1="34" y1="22" x2="44" y2="10" style="fill:white;stroke:white;stroke-width:3"/>
+<text x="60" y="30" fill="white" style="font-family:sans-serif; font-size:19">GAME</text>
+</svg>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html id="main">
+<html>
 <head>
 	<link rel="icon" type="image/x-icon" href="./favicon.ico">
 	<meta charset="utf-8">
@@ -20,19 +20,21 @@
 		
 		#main {
 			width: 100%;
+			height: 430px;
 			background-color: #e0e0e0;
 		}
 
 		header {
+			height: 175px;
 			width: 100%;
 			background-image: url(./image/page.jpg);
 			background-repeat: no-repeat;
-			background-size: 100% 100%;
+			background-size: 100%;
 			text-align: center;
 		}
 		
 		nav {
-			height: auto;
+			height: 130px;
 			width: 100%;
 			background-color: #e8e8e8;
 		}
@@ -41,80 +43,39 @@
 			text-align: center;
 			background-size: 100%;
 			background-repeat: no-repeat; 
-			display: inline-block;
-			height: auto;
+			float: left;
+			height: 130px;
 			width: 25%;
 		}
 
-		img {
-			height: 100%;
-			width: 100%;
+		#resume {
+			background-image: url(./image/resume.png);
 		}
 
-		a {
-			font-size: 0;
+		#game {
+			background-image: url(./image/game.png);
 		}
 
-		@media only screen and (max-width: 480px) {
- 			h1 {
-    			font-size: 1.5em;
-    			letter-spacing: -2px;
-    			padding-top: : 10.4em;
-    			margin: 0 0;
-    			position: absolute;
-    			top: 100px;
-    			left: 50%;
-			}
-
-			header {
-				height: 200px;
-			}
+		#about {
+			background-image: url(./image/about.png);
 		}
 
-		@media only screen and (max-width: 768px) and (min-width: 480px) {
-			h1 {
-				display: inline-block;
-    			font-size: 4.6em;
-    			padding-top: : 0.7em;
-    			margin: 0 0;
-    			position: absolute;
-    			top: 200px;
-    			left: 50%;
-			}
-			header {
-				height: 400px;
-			}
-		}
-
-		@media only screen and (max-width: 2000px) and (min-width: 768px) {
-			h1 {
-    			font-size: 5.5em;
-    			letter-spacing: -7px;
-    			padding-top: : 1.5em;
-    			margin: 0 0;
-    			position: absolute;
-    			left: 50%;
-    			right: 50%;
-			}
-			header {
-				height: 440px;
-			}
+		#blog {
+			background-image: url(./image/blog.png);
 		}
 
 		h1 {
-			position: absolute;
 			font-family: "Novecentowide";
-			/*font-size: 4em;*/
+			font-size: 2.5em;
     		letter-spacing: normal;
     		color: #404040;
 		}
 
 		h2 {
 			font-family: "Novecentowide";
-			font-size: 1em;
+			font-size: 12px;
     		letter-spacing: normal;
     		color: #404040;
-    		padding-top: 1em;
 		}
 		
 		.logo {
@@ -125,8 +86,10 @@
 		}
 				
 		footer {
-			height: 100%;
+			height: 80px;
 			width: 100%;
+			/*background-color: green;*/
+			/*background-image: url(./image/wave-pattern.png);*/
 			text-align: center;
 		}
 
@@ -149,42 +112,40 @@
 	</style>
 </head>
 <body>
-	
+	<div id="main">
 	<header>
-		<div style="height: 50%; position: absolute; top: 25%;">
-			<!--h1>
+		<div style="height: 20px;"></div>
+		<!--img class="logo" src="./image/logo2.jpg" alt="Logo of website"-->
+		
+		<h1>
 			WEB & BACK END
-			</h1-->
-		</div>
+		</h1>
+		<!--p>By Zhang Qiongyu</p-->
 		
 	</header>
 	<nav>
-		<a href="./html/resume.html">
+		<a href="">
 			<div id="resume" title="Have a look at my resume">
-				<img src="./image/resume.png">
 			</div>
 		</a>
-		<a href="./html/snake.html">
+		<a href="./snake/snake.html">
 			<div id="game" title="Just play the games to have fun">
-				<img src="./image/game.png">
 			</div>
 		</a>
-		<a href="./html/blog.html">
-			<div id="blog" title="See what Zhang Qiongyu usually does">
-				<img src="./image/blog.png">
-			</div>
-		</a>
-		<a href="./html/about.html">
+		<a href="">
 			<div id="about" title="A little about Zhang Qiongyu">
-				<img src="./image/about.png">
+			</div>
+		</a>
+		<a href="">
+			<div id="blog" title="See what Zhang Qiongyu usually does">
 			</div>
 		</a>
 	</nav>
-
+	<div style="height: 20px;"></div>
 	<footer>
 		<h2>Contact me</h2>
 		<!--div-->
-		<a href="https://www.baidu.com" title="Facebook" target="blank">
+		<a href="https://www.baidu.com" title="Facebook">
 			<img class="contact" src="./image/facebook.jpg">
 		</a>
 		&nbsp;&nbsp;
@@ -192,18 +153,19 @@
 			<img class="contact" src="./image/weichat.jpg">
 		</a>
 		&nbsp;&nbsp;
-		<a href="https://github.com/zhangqiongyu/" title="Github" target="blank">
+		<a href="https://github.com/zhangqiongyu/" title="Github">
 			<img class="contact" src="./image/github.jpg">
 		</a>
-		
-
-	</footer>
-	<footer style="background-color: #262b33">
-		<h2 style="color: white;">Scan the QRCode to concern me</h3>
-		<img style="width: 10%" src="./image/2dbarcode.png">
-		<p style="font-family: BloklettersPotlood; font-size: 12px; color: #7a989d">
+		<p style="font-family: BloklettersPotlood; font-size: 6px;">
 			Copyright&copy2017 Zhang Qiongyu
 		</p>
+
 	</footer>
+
+
+	</div>
+	<script type="text/javascript">
+		
+	</script>
 </body>
 </html>
