@@ -97,7 +97,8 @@ pause_btn.onclick = function()
 
 function createChessboard()
 {
-	$("#chess").empty();
+	//$("#chess").empty();
+    document.getElementById("chess").innerHTML = '';
 	ROW = document.getElementById("row").value;	
 	COL = document.getElementById("col").value;
 	
